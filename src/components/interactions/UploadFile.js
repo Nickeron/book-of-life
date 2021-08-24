@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { importImage } from '../../actions';
 import React, {Component} from 'react';
@@ -18,24 +17,14 @@ class UploadFile extends Component
 	};
 	
 	// On file upload (click the upload button)
-	onFileUpload = () => 
+	onFileUpload = formValues => 
 	{
-		// Create an object of formData
-		const formData = new FormData();
-		
-		// Update the formData object
-		formData.append(
-			"myFile",
-			this.state.selectedFile,
-			this.state.selectedFile.name
-		);
-	
 		// Details of the uploaded file
-		console.log(this.state.selectedFile);
+		console.log(`Trying to upload file: ${this.state.selectedFile.name}`);
 	
 		// Request made to the backend api
 		// Send formData object
-		axios.post("api/uploadfile", formData);
+		//axios.post("api/uploadfile", formData);
 		this.props.importImage(formValues);
 	};
 		
@@ -46,7 +35,7 @@ class UploadFile extends Component
 		if (this.state.selectedFile) 
 		{
 			return (
-				<button className="ui secondary basic button" onClick={this.onFileUpload}>Upload!</button>
+				<button className="ui secondary basic button" onClick={this.props.handleSubmit(this.onFileUpload)}>Upload!</button>
 			);
 		} 
 		else 
@@ -76,6 +65,6 @@ const formWrapped = reduxForm(
 	}
 )(UploadFile);
 
-export default connect(null, { UploadFile })(formWrapped);
+export default connect(null, { importImage })(formWrapped);
 
 //export default UploadFile;

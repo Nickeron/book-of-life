@@ -1,0 +1,29 @@
+.wrapper{
+	height:100%;
+  }
+
+.title{
+	height: 10%;
+	margin: 10pt !important;
+	padding: 15pt !important;
+}
+
+.mainContent{
+	height: 90%;
+	margin: auto !important;
+	width: 50%;
+	padding: 10px;
+}
+
+.check{
+	float: right;
+}
+
+.positive.button{
+	margin: auto !important;
+	width: 20%;
+}
+
+input[type="file"] {
+    display: none;
+}

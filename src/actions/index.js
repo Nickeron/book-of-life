@@ -3,9 +3,10 @@ import { IMPORT_IMAGE, DELETE_IMAGE, EDIT_TEXT,	FETCH_QUIZ_DATA, FETCH_EXP_DATA 
 
 export const importImage = formValues =>
 {
-	return async dispatch => 
+	return async (dispatch, getState) => 
 	{
-		const response = await server.post('/images', formValues);
+		const { userId } = getState().auth;
+		const response = await server.post('/images', {...formValues, userId} );
 
 		dispatch({ type: IMPORT_IMAGE, payload: response.data});
 	};
@@ -22,21 +23,23 @@ export const deleteImage = id =>
 };
 
 
-export const fetchQuizData = chapterID =>
+export const fetchQuizData = id =>
 {
-	return async dispatch => 
+	return async (dispatch, getState) => 
 	{
-		const response = await server.get(`/quiz/${chapterID}`);
+		const { userId } = getState().auth;
+		const response = await server.get(`/quiz/${id}`, userId);
 
 		dispatch({ type: FETCH_QUIZ_DATA, payload: response.data});
 	};
 };
 
-export const fetchExpandedData = subjectExpansion =>
+export const fetchExpandedData = id =>
 {
-	return async dispatch => 
+	return async (dispatch, getState) => 
 	{
-		const response = await server.get(`/exp/${subjectExpansion}`);
+		const { userId } = getState().auth;
+		const response = await server.get(`/exp/${id}`, userId);
 
 		dispatch({ type: FETCH_EXP_DATA, payload: response.data});
 	};

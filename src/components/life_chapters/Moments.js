@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchQuizData } from '../../actions';
 import SubjectList from '../interactions/SubjectList';
 
-const items = 
+let items = 
 [
 	{
 		title: 'The first kiss',
@@ -42,16 +44,38 @@ const items =
 
 export {items};
 
-const Moments = () =>
+class Moments extends Component
 {
-    return (
-        <div className="wrapper ui stretched container">
-            <div className="ui center aligned huge header title">Moments</div>
-            <div className="ui items mainContent">
-                <SubjectList items={items} /> 
-            </div>
-        </div>
-    );
+	componentDidMount()
+	{
+		this.props.fetchQuizData(this.props.userID);
+	}
+
+	renderList()
+	{
+		return (
+			<div className="wrapper ui stretched container">
+				<div className="ui center aligned huge header title">Moments</div>
+				<div className="ui items mainContent">
+					<SubjectList items={this.state.quizData} /> 
+				</div>
+			</div>
+		);
+	}
+
+	render()
+	{
+		return this.renderList();
+	}
+    
 };
 
-export default Moments;
+const mapStateToProps = state =>
+{
+	return { 
+		quizData: Object.values(state.quizData),
+		currentUserID: state.auth.userId
+	};
+}
+
+export default connect(mapStateToProps, {fetchQuizData})(Moments);

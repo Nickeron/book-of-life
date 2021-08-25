@@ -57,7 +57,7 @@ class Moments extends Component
 			<div className="wrapper ui stretched container">
 				<div className="ui center aligned huge header title">Moments</div>
 				<div className="ui items mainContent">
-					<SubjectList items={this.state.quizData} /> 
+					<SubjectList items={this.props.quizData} /> 
 				</div>
 			</div>
 		);
@@ -72,8 +72,9 @@ class Moments extends Component
 
 const mapStateToProps = state =>
 {
+	console.log(state);
 	return { 
-		quizData: Object.values(state.quizData),
+		quizData: Object.values(state.data),
 		currentUserID: state.auth.userId
 	};
 }

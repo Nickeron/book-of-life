@@ -48,7 +48,7 @@ class Moments extends Component
 {
 	componentDidMount()
 	{
-		this.props.fetchQuizData(this.props.userID);
+		this.props.fetchQuizData(this.props.currentUserID);
 	}
 
 	renderList()

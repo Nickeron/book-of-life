@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ExpansionLink from '../ExpansionLink';
+import ExpansionLink from '../links/ExpansionLink';
 
 const OpenQuestion = ({question, response, title, link}) =>
 {

@@ -1,5 +1,18 @@
 import server from "../apis/server";
-import { IMPORT_IMAGE, DELETE_IMAGE, EDIT_TEXT,	FETCH_QUIZ_DATA, FETCH_EXP_DATA } from "./types";
+import { IMPORT_IMAGE, DELETE_IMAGE, EDIT_TEXT,	FETCH_QUIZ_DATA, FETCH_EXP_DATA, SIGN_IN, SIGN_OUT } from "./types";
+
+export const signIn = userId => {
+	return {
+	  type: SIGN_IN,
+	  payload: userId
+	};
+  };
+  
+  export const signOut = () => {
+	return {
+	  type: SIGN_OUT
+	};
+  };
 
 export const importImage = formValues =>
 {

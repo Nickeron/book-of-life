@@ -1,5 +1,5 @@
 import React from 'react';
-import ChapterLink from './ChapterLink';
+import ChapterLink from './links/ChapterLink';
 
 const MainMenu = () =>
 {

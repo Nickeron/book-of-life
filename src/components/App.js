@@ -9,6 +9,7 @@ import Music from './life_chapters/Music';
 import Work from './life_chapters/Work';
 import Travelling from './life_chapters/Traveling';
 import MomentsExpansion from './life_chapters/MomentsExpansion';
+import Authentication from './Authentication';
 
 
 const App = () =>
@@ -17,6 +18,7 @@ const App = () =>
         <div className="wrapper">
             <BrowserRouter>
             <div className="wrapper">
+                <Authentication/>
                 <Route path="/" exact component={MainMenu}/>
                 <Route path="/faces" exact component={Faces}/>
                 <Route path="/family" exact component={Family}/>

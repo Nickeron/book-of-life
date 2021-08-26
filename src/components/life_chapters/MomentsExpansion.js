@@ -4,6 +4,7 @@ import {items} from './Moments';
 
 const MomentsExpansion = (props) =>
 {  
+    console.log(props)
     var currPage = items.filter(
         obj => { return obj.link === props.location.pathname })[0];
 

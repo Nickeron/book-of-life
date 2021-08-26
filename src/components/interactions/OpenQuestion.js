@@ -10,10 +10,12 @@ const OpenQuestion = ({question, response, title, link}) =>
 
 	const saveOrGo = () =>
 	{
-		if(saveOrMore === "More"){
+		if(saveOrMore === "More")
+		{
 			return <ExpansionLink linkText={link} chapterName={title}/>
 		}
-		else{
+		else
+		{
 			return <button className={`ui ${active} positive button`}>Save</button>
 		}
 	}

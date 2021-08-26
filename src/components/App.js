@@ -26,7 +26,7 @@ const App = () =>
                 <Route path="/music" exact component={Music}/>
                 <Route path="/work" exact component={Work}/>
                 <Route path="/travelling" exact component={Travelling}/>
-                <Route path="/moments-more/" component={MomentsExpansion}/>
+                <Route path="/moments/:id" exact component={MomentsExpansion}/>
             </div>
             </BrowserRouter>
         </div>

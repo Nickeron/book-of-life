@@ -72,7 +72,6 @@ class Moments extends Component
 
 const mapStateToProps = state =>
 {
-	console.log(state);
 	return { 
 		quizData: Object.values(state.data),
 		currentUserID: state.auth.userId

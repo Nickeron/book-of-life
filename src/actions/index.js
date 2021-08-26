@@ -1,18 +1,18 @@
 import server from "../apis/server";
 import { IMPORT_IMAGE, DELETE_IMAGE, EDIT_TEXT,	FETCH_QUIZ_DATA, FETCH_EXP_DATA, SIGN_IN, SIGN_OUT } from "./types";
 
-export const signIn = userId => {
+export const signIn = userId => 
+{
 	return {
 	  type: SIGN_IN,
 	  payload: userId
 	};
-  };
+};
   
-  export const signOut = () => {
-	return {
-	  type: SIGN_OUT
-	};
-  };
+export const signOut = () => 
+{
+	return { type: SIGN_OUT	};
+};
 
 export const importImage = formValues =>
 {
@@ -41,7 +41,7 @@ export const fetchQuizData = id =>
 	return async (dispatch, getState) => 
 	{
 		const { userId } = getState().auth;
-		const response = await server.get(`/quiz/${id}`, userId);
+		const response = await server.post(`/quiz/${id}`, userId);
 
 		dispatch({ type: FETCH_QUIZ_DATA, payload: response.data});
 	};
@@ -52,7 +52,7 @@ export const fetchExpandedData = id =>
 	return async (dispatch, getState) => 
 	{
 		const { userId } = getState().auth;
-		const response = await server.get(`/exp/${id}`, userId);
+		const response = await server.post(`/exp/${id}`, userId);
 
 		dispatch({ type: FETCH_EXP_DATA, payload: response.data});
 	};

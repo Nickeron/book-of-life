@@ -8,19 +8,23 @@ class Authentication extends React.Component
 	{
 		// TODO: Implement proper authentication through the 
 		this.auth = 
-		{ 
-			isSignedIn: true, 
+		{
 			currentUser: {
 				get: () => 
 				{
 					return {
 						getId: () => 
 						{
-							return 3;
+							return '712';
 						}
 					};
 				}
-			}}
+			},
+
+			signIn: () => {return;}			
+		};
+
+		this.props.signIn(this.auth.currentUser.get().getId());
 
 		// Google Authentication
 		/* window.gapi.load('client:auth2', () => 

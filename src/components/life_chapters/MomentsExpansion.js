@@ -1,11 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import UploadFile from '../interactions/UploadFile';
-import {items} from './Moments';
 
 const MomentsExpansion = (props) =>
 {  
     console.log(props)
-    var currPage = items.filter(
+    var currPage = this.props.quizData.filter(
         obj => { return obj.link === props.location.pathname })[0];
 
     return (
@@ -53,4 +53,13 @@ const MomentsExpansion = (props) =>
     );
 };
 
-export default MomentsExpansion;
+const mapStateToProps = state =>
+{
+	return { 
+		subjectID: 5,
+		quizData: Object.values(state.data),
+		currentUserID: state.auth.userId
+	};
+}
+
+export default connect(mapStateToProps, {})(MomentsExpansion);

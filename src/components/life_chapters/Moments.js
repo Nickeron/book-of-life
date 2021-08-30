@@ -48,7 +48,7 @@ class Moments extends Component
 {
 	componentDidMount()
 	{
-		this.props.fetchQuizData(5);
+		this.props.fetchQuizData(this.props.subjectID);
 	}
 
 	renderList()
@@ -57,7 +57,8 @@ class Moments extends Component
 			<div className="wrapper ui stretched container">
 				<div className="ui center aligned huge header title">Moments</div>
 				<div className="ui items mainContent">
-					<SubjectList items={this.props.quizData} /> 
+					{console.log(this.props.quizData)}
+					<SubjectList items={this.props.quizData[0].items} />				
 				</div>
 			</div>
 		);
@@ -73,6 +74,7 @@ class Moments extends Component
 const mapStateToProps = state =>
 {
 	return { 
+		subjectID: 5,
 		quizData: Object.values(state.data),
 		currentUserID: state.auth.userId
 	};

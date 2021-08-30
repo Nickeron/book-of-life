@@ -41,9 +41,9 @@ export const fetchQuizData = id =>
 	return async (dispatch, getState) => 
 	{
 		const { userId } = getState().auth;
-		const response = await server.get(`/quiz?id=${userId}&id=${id}`);
+		const response = await server.get(`/quiz?userID=${userId}&subjectID=${id}`);
 
-		dispatch({ type: FETCH_QUIZ_DATA, payload: response.data});
+		dispatch({ type: FETCH_QUIZ_DATA, payload: response.data[0].subjects});
 	};
 };
 

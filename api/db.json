@@ -2,11 +2,11 @@
 	"quiz" :
 	[
 		{
-			"id": 712,
+			"userID": 712,
 			"subjects" : 
 			[
 				{
-					"id": 5,
+					"subjectID": 5,
 					"items":
 					[		
 						{
@@ -47,7 +47,7 @@
 					]
 				},
 				{
-					"id": 6,
+					"subjectID": 6,
 					"items":
 					[		
 						{
@@ -86,17 +86,15 @@
 							"response": ""
 						}
 					]
-				}
-				
-			]
-			
+				}				
+			]			
 		},
 		{
-			"id": 711,
+			"userID": 711,
 			"subjects" : 
 			[
 				{
-					"id": 5,
+					"subjectID": 5,
 					"items":
 					[		
 						{
@@ -137,7 +135,7 @@
 					]
 				},
 				{
-					"id": 6,
+					"subjectID": 6,
 					"items":
 					[		
 						{
@@ -176,10 +174,8 @@
 							"response": ""
 						}
 					]
-				}
-				
-			]
-			
+				}				
+			]			
 		}
 	]	
 }

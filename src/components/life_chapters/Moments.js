@@ -11,23 +11,30 @@ class Moments extends Component
 		//console.log(this.props.quizData);
 	}
 
+	renderQuizData = () =>
+	{
+		return this.props.quizData.map(subjectItems =>
+			{	
+				//console.log("Rendering subject items: " + subjectItems);			
+				if(subjectItems !== 0){
+					return <SubjectList items={subjectItems} />
+				}
+				else return null;				
+				 
+			})
+	}
+
 	render()
 	{
 		return (
 			<div className="wrapper ui stretched container">
 				<div className="ui center aligned huge header title">Moments</div>
 				<div className="ui items mainContent">
-					{
-						this.props.quizData.map(subject =>
-						{							
-							return <SubjectList items={subject} /> 
-						})
-					}					
+					{this.renderQuizData()}					
 				</div>
 			</div>
 		);
-	}
-    
+	}    
 };
 
 const mapStateToProps = state =>

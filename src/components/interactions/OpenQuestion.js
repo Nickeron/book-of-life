@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ExpansionLink from '../links/ExpansionLink';
+import SaveQuizAnswer from './SaveQuizAnswer';
 
 const OpenQuestion = ({question, response, title, link}) =>
 {
@@ -14,9 +15,10 @@ const OpenQuestion = ({question, response, title, link}) =>
 		{
 			return <ExpansionLink linkText={link} chapterName={title}/>
 		}
+		// If the user has not input anything as an answer yet
 		else
 		{
-			return <button className={`ui ${active} positive button`}>Save</button>
+			return <SaveQuizAnswer active={active}/>
 		}
 	}
 

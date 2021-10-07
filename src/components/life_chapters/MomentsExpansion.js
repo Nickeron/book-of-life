@@ -6,7 +6,7 @@ class MomentsExpansion extends Component
 {  
     componentDidMount()
 	{
-		console.log("Moments Expansion: "+this.props.quizData);
+		console.log("Moments Expansion: " + this.props.quizData);
         this.props.currPage = this.props.quizData.items.filter(
             obj => { return obj.link === this.props.location.pathname })[0];
 	}

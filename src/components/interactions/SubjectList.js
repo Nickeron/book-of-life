@@ -16,7 +16,8 @@ const SubjectList = ({items}) =>
 		{
 			case "open question":
 				{
-					return ( <OpenQuestion question={item.content} response={item.response} title={item.title} link={item.link}/>	);
+					return ( <OpenQuestion question={item.content} response={item.response} 
+											title={item.title} link={item.link}/>	);
 				}				
 			default:
 				{
@@ -35,7 +36,7 @@ const SubjectList = ({items}) =>
 		}
 	}
 
-	const renderedItems = items.map((item, index) =>
+	const renderedItems = items?.map((item, index) =>
 	{
 		const active = index === activeIndex? "active" : "";		
 		return (

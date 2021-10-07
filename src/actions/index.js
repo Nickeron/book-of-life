@@ -41,6 +41,7 @@ export const fetchQuizData = id =>
 	return async (dispatch, getState) => 
 	{
 		const { userId } = getState().auth;
+		getState().activeSubject = id;
 		const response = await server.get(`/quiz?userID=${userId}&subjectID=${id}`);
 		const dataReturned = response.data[0].subjects.find(x => x.subjectID === id);
 		//console.log(dataReturned.items);
@@ -49,6 +50,17 @@ export const fetchQuizData = id =>
 	};
 };
 
+export const saveQuizAnswer = (id, formValues) =>
+{
+	return async (dispatch, getState) => 
+	{
+		const { userId } = getState().auth;
+		const response = await server.put(`/quiz?userID=${userId}&subjectID=${id}/text/${id}`, formValues);
+
+		dispatch({ type: EDIT_TEXT, payload: response.data});
+	};
+}
+
 export const fetchExpandedData = id =>
 {
 	return async (dispatch, getState) => 
@@ -56,7 +68,7 @@ export const fetchExpandedData = id =>
 		const { userId } = getState().auth;
 		const response = await server.get(`/exp?id=${userId}&id=${id}`);
 
-		dispatch({ type: FETCH_EXP_DATA, payload: response.data});
+		dispatch({ type: FETCH_EXP_DATA, payload: {id, response}});
 	};
 };
 

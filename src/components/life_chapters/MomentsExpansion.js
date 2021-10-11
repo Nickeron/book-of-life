@@ -6,14 +6,13 @@ class MomentsExpansion extends Component
 {  
     componentDidMount()
 	{
-		console.log("Moments Expansion: " + this.props.quizData);
+		console.log("(Moments Expansion) Data: " + this.props.quizData);
         this.props.currPage = this.props.quizData.items.filter(
             obj => { return obj.link === this.props.location.pathname })[0];
 	}
     
     render()
     {
-        console.log("Moments Expansion");
         return (
             <div className="wrapper ui stretched container">
                 <div className="ui center aligned huge header title">{this.props.currPage.title}</div>

@@ -16,7 +16,8 @@ class Moments extends Component
 		return this.props.quizData.map(subjectItems =>
 			{	
 				//console.log("Rendering subject items: " + subjectItems);			
-				if(subjectItems !== 0){
+				if(subjectItems !== 0)
+				{
 					return <SubjectList items={subjectItems} />
 				}
 				else return null;				

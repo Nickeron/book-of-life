@@ -52,6 +52,7 @@ export const fetchQuizData = id =>
 
 export const saveQuizAnswer = (id, formValues) =>
 {
+	console.log("(REDUCER: Save Quiz Answer) Saving answer with id:" + id);
 	return async (dispatch, getState) => 
 	{
 		const { userId } = getState().auth;

@@ -6,10 +6,11 @@ class SaveQuizAnswer extends Component
 {
 	saveAnswer()
 	{
-		console.log("(SaveAnswer Button) Trying to save answer...")
+		console.log("(Button SaveAnswer) Trying to save answer...");
+
 		return this.props.subjectID !== undefined ? 
-		this.props.saveQuizAnswer(this.props.subjectID, this.props.formValues) : 
-		console.log("(SaveAnswer Button) ABORT: Undefined subjectID")
+				this.props.saveQuizAnswer(this.props.subjectID, this.props.formValues) : 
+				console.log("(Button SaveAnswer) ABORT: Undefined subjectID");
 	}
 	
 	render()

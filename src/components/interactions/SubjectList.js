@@ -38,7 +38,7 @@ const SubjectList = ({items}) =>
 
 	const renderedItems = items?.map((item, index) =>
 	{
-		const active = index === activeIndex? "active" : "";		
+		const active = index === activeIndex? "active" : "";
 		return (
 			<React.Fragment key={index}>
 				<div className = {`title ${active}`} onClick={() => onTitleClick(index)}>

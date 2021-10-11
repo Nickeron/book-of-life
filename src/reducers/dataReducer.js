@@ -11,14 +11,16 @@ const dataReducer = (state = INTIAL_STATE, action) =>
 	switch( action.type) 
 	{
 		case FETCH_EXP_DATA:
-			console.log("Returned data: " + action.payload);
+			console.log("(Fetch Expanded Data) Returned data: " + action.payload);
 			return { ...state, activeSubject: action.payload, activeQuestion: action.payload };
 		case FETCH_QUIZ_DATA:
+			console.log("(Fetch Quiz Data) Returned data: " + action.payload);
 			return {...state, ..._.mapKeys(action.payload, 'id')};
 		case IMPORT_IMAGE:
 		case EDIT_TEXT:
 			return {...state, [action.payload.id]: action.payload};
 		case DELETE_IMAGE:
+			console.log("(Delete Image): " + action.payload);
 			return _.omit(state, action.payload);
 		default:
 			return state;		
